@@ -13,6 +13,7 @@ var getdb = firebase.firestore();
 var cards = document.querySelector('.cards')
 var getBtn = document.querySelector('#getBtn')
 var PN = document.querySelector('#pn')
+var DATE = document.querySelector('#date')
 
 var PName = document.querySelector('#pName')
 var Ref = document.querySelector('#refresh')
@@ -45,6 +46,8 @@ getBtn.addEventListener('click', ()=>{
         const loc = document.createElement('div')
 
         PN.innerHTML = items[i].name
+
+        DATE.innerHTML = items[i].date
         
         preg.classList.add("card")
         preg.innerHTML = `<p>PREGNANCY</p><h1>${items[i].pregnancy}</h1>`

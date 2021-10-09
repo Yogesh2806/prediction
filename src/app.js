@@ -1,5 +1,6 @@
 document.getElementById('addSubmit').addEventListener('submit', addForm);
 
+const date = document.querySelector('#date');
 const Name = document.querySelector('#name');
 const Age = document.querySelector('#age');
 const Preg = document.querySelector('#preg');
@@ -32,6 +33,7 @@ function addForm(e){
     e.preventDefault();
     db.collection('datas')
               .add({
+                date: date.value,
                 name: Name.value,
                 age: Age.value,
                 pregnancy: Preg.value,

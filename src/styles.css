@@ -340,9 +340,17 @@
   margin: auto;
   height: 68vh;
 }
-.card-holder > p {
+.card-holder > .info {
+  width: 70%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-holder > .info > p {
   margin-left: 5.5rem;
   font-size: 1.5rem;
+  color: white;
 }
 .cards {
   display: flex;
