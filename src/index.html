@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diabetics</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="loginBody">
+
+    <div class="loginPage" id="LoginPage">
+        <div id="LoginScreen">
+            <p>SIGN IN</p>
+            <button id="login">Login with Google</button>
+        </div>
+    </div>
+
+    <div id="dashboard">
+      <div class="userPanel">
+        <div id="userDetails"></div>
+        <button id="logout">Logout</button>
+      </div>
+      <div class="dashPage">
+        <p>DASHBOARD</p>
+        <div class="dash-holder">
+          <a href="./add.html">ADD PATIENT </a>
+          <a href="./get.html"> GET PATIENT</a>
+          <a href="./view.html"> VIEW STATS</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-auth-compat.js"></script>
+
+    <script>
+      var firebaseConfig = {
+      apiKey: "AIzaSyCceEMjrhck6iim9nyC_lAGMUktMxbWu_Q",
+      authDomain: "prediction-81250.firebaseapp.com",
+      projectId: "prediction-81250",
+      storageBucket: "prediction-81250.appspot.com",
+      messagingSenderId: "112856538405",
+      appId: "1:112856538405:web:2b3681368deedf00578ecc",
+      measurementId: "G-ZPTSDGWCQB"
+  
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      document.getElementById('dashboard').style.display="none"
+
+      document.getElementById('login').addEventListener('click', GoogleLogin)
+      document.getElementById('logout').addEventListener('click', LogoutUser)
+
+      let provider = new firebase.auth.GoogleAuthProvider()
+
+      function GoogleLogin(){
+        console.log('Login Btn Call')
+        firebase.auth().signInWithPopup(provider).then(res=>{
+          console.log(res.user)
+          document.getElementById('LoginPage').style.display="none"
+          document.getElementById('dashboard').style.display="flex"
+          showUserDetails(res.user)
+        }).catch(e=>{
+          console.log(e)
+        })
+      }
+
+      function showUserDetails(user){
+        document.getElementById('userDetails').innerHTML = `
+          <img src="${user.photoURL}">
+          <div class="details">
+            <p>${user.displayName}</p>
+            <p>${user.email}</p>
+          </div>
+        `
+      }
+
+      function checkAuthState(){
+        firebase.auth().onAuthStateChanged(user=>{
+          if(user){
+            document.getElementById('LoginPage').style.display="none"
+            document.getElementById('dashboard').style.display="flex"
+            showUserDetails(user)
+          }else{
+
+          }
+        })
+      }
+
+      function LogoutUser(){
+        console.log('Logout Btn Call')
+        firebase.auth().signOut().then(()=>{
+          document.getElementById('LoginPage').style.display="flex"
+          document.getElementById('dashboard').style.display="none"
+        }).catch(e=>{
+          console.log(e)
+        })
+      }
+      checkAuthState()
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>View Patient</title>
+  </head>
+  <body class="viewBody">
+    <div class="container">
+      <h1>VIEW LIST</h1>
+      <button id="btn">GENERATE</button>
+      <div class="table">
+        <div class="headings">
+          <p>PREGNANCY</p>
+          <p>GLUCOSE</p>
+          <p>BLOOD PRESSURE</p>
+          <p>SKIN THICKNESS</p>
+          <p>INSULIN</p>
+          <p>BMI</p>
+          <p>DIABETICS</p>
+          <p>AGE</p>
+          <p>LOCATION</p>
+        </div>
+        <div class="rows"></div>
+      </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore-compat.js"></script>
+    <script src="app.js"></script>
+    <script src="view.js"></script>
+  </body>
+</html>
