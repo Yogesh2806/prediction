@@ -33,8 +33,8 @@ function addForm(e){
     e.preventDefault();
     db.collection('datas')
               .add({
-                date: date.value,
                 name: Name.value,
+                date: date.value,
                 age: Age.value,
                 pregnancy: Preg.value,
                 glucose: Glu.value,

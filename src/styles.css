@@ -63,16 +63,16 @@
   height: 1.6rem;
   font-size: 1.2rem;
   display: grid;
-  grid-template-columns: repeat(9, 1fr);
+  grid-template-columns: repeat(10, 1fr);
   justify-items: flex-start;
   align-items: center;
   letter-spacing: 0.1rem;
 }
 .rows {
-  margin-left: 3rem;
+  margin-left: 1rem;
   padding-top: 4rem;
   display: grid;
-  grid-template-columns: repeat(9, 1fr);
+  grid-template-columns: repeat(10, 1fr);
   justify-items: flex-start;
   align-items: center;
   width: 100%;

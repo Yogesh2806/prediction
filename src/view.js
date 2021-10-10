@@ -35,6 +35,7 @@ genBtn.addEventListener('click', ()=>{
         const diab = document.createElement('p')
         const age = document.createElement('p')
         const loc = document.createElement('p')
+        const dat = document.createElement('p')
         preg.innerText = items[i].pregnancy
         rows.appendChild(preg)
         glu.innerText = items[i].glucose
@@ -53,6 +54,8 @@ genBtn.addEventListener('click', ()=>{
         rows.appendChild(age)
         loc.innerText = items[i].location
         rows.appendChild(loc)
+        dat.innerText = items[i].date
+        rows.appendChild(dat)
     }
 
 });
